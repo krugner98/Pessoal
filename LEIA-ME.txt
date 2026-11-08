@@ -1,5 +1,19 @@
-MINHA ROTINA — AJUSTE DA PONTUAÇÃO DIÁRIA
+MINHA ROTINA — REGISTRO DE EXERCÍCIOS E CARGAS
 
-A nota agora usa pesos fixos: Alimentação 35%, Treinamento/recuperação 30%, Hidratação 20% e Creatina 15%. Se não houver registro de uma categoria, ela recebe zero ponto. Descanso planejado recebe 100 pontos somente na categoria de treinamento/recuperação; não dá pontos automáticos para alimentação, água ou creatina. Datas futuras não recebem nota.
+Atualização: modo de registro por exercício.
 
-Para atualizar, substitua os arquivos do repositório pelos arquivos deste pacote, mantendo a pasta icons. Não apague os dados do navegador. A chave de armazenamento continua sendo minhaRotinaFitnessV3. O cache foi atualizado para v7. Faça backup antes de atualizar.
+Novidades:
+- Marque individualmente cada exercício concluído usando a caixa de seleção.
+- Registre a carga utilizada em kg em cada exercício e em cada data.
+- O aplicativo guarda a conclusão e a carga por data, treino e exercício.
+- A última carga registrada para cada exercício aparece como referência na próxima sessão.
+- A aba Treinos agora mostra o Histórico de cargas, com data e peso utilizado.
+
+Como atualizar:
+1. Faça backup dos dados no aplicativo antes de substituir os arquivos.
+2. Extraia este ZIP.
+3. Envie/substitua index.html, sw.js, manifest.webmanifest e a pasta icons na raiz do repositório GitHub.
+4. Faça Commit changes.
+5. Abra o app novamente. Se necessário, feche e reabra o PWA.
+
+Os dados são armazenados no navegador deste dispositivo. A atualização mantém a chave localStorage existente: minhaRotinaFitnessV3. Não limpe os dados do site.
