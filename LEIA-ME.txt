@@ -1,9 +1,5 @@
-MINHA ROTINA — ATUALIZAÇÃO COM DESEMPENHO
+MINHA ROTINA — AJUSTE DA PONTUAÇÃO DIÁRIA
 
-Novidade: aba Desempenho com nota diária de 0 a 100, calendário mensal e resumo de indicadores.
+A nota agora usa pesos fixos: Alimentação 35%, Treinamento/recuperação 30%, Hidratação 20% e Creatina 15%. Se não houver registro de uma categoria, ela recebe zero ponto. Descanso planejado recebe 100 pontos somente na categoria de treinamento/recuperação; não dá pontos automáticos para alimentação, água ou creatina. Datas futuras não recebem nota.
 
-A nota considera alimentação registrada, treino/recuperação, hidratação e creatina. Indicadores sem registro são omitidos e a tela informa quando a nota é parcial. Descanso planejado conta como recuperação adequada.
-
-INSTALAÇÃO: substitua os arquivos do repositório GitHub pelos arquivos deste pacote, mantendo a pasta icons. Não apague os dados do navegador. A chave de armazenamento local continua sendo minhaRotinaFitnessV3. O service worker foi atualizado para v5 para renovar o cache.
-
-Faça backup antes de atualizar.
+Para atualizar, substitua os arquivos do repositório pelos arquivos deste pacote, mantendo a pasta icons. Não apague os dados do navegador. A chave de armazenamento continua sendo minhaRotinaFitnessV3. O cache foi atualizado para v7. Faça backup antes de atualizar.
