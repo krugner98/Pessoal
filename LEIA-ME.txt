@@ -22,3 +22,6 @@ INSTALAÇÃO:
 
 DADOS:
 O progresso é salvo no armazenamento local do navegador/dispositivo. Esta versão não sincroniza automaticamente dados entre celular e computador. Para isso, seria necessário adicionar uma base de dados na nuvem e autenticação.
+
+
+ATUALIZACAO: esta versao inclui metas editaveis, edicao de fichas e refeicoes, reagendamento por data, registro de treino realizado e atividades extras. Os dados continuam no localStorage V3 existente; nao limpe os dados do navegador.
