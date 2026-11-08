@@ -1,9 +1,12 @@
 MINHA ROTINA — PWA
 
+Atualização: peso atual inicial de 110 kg e hidratação (3,0 L em dias comuns; 3,5 L na quarta de futebol), com registro diário.
+
 Arquivos:
 - index.html: aplicativo
 - manifest.webmanifest: configuração de instalação
 - sw.js: cache/offline
+- Controle diário de hidratação e creatina (dose configurável, padrão 5 g)
 - icons/: ícones do aplicativo
 
 PUBLICAÇÃO:
