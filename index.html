@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f7f4"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Minha Rotina"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png"><link rel="apple-touch-icon" href="./icons/icon-192.png">
+<title>Minha Rotina Fitness</title>
+<style>
+:root{--bg:#f5f7f4;--card:#fff;--ink:#26352c;--muted:#718078;--line:#e3eae3;--green:#47785b;--pale:#e8f1e9;--gold:#b28b48;--shadow:0 7px 24px #26352c0b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1100px;margin:auto;padding:24px 18px 50px}
+header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.brand{display:flex;gap:12px;align-items:center}.logo{width:45px;height:45px;border-radius:15px;background:var(--pale);display:grid;place-items:center;font-size:23px}h1{font-size:22px;margin:0;letter-spacing:-.6px}.muted,.sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:5px;overflow:auto;border-bottom:1px solid var(--line);margin-bottom:19px}.tab{background:none;border:0;padding:12px 14px;color:var(--muted);font-weight:700;white-space:nowrap;border-bottom:2px solid transparent}.tab.active{color:var(--green);border-color:var(--green)}
+.view{display:none}.view.active{display:block}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,1fr);margin-bottom:14px}.cols{grid-template-columns:1.1fr .9fr}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:17px;box-shadow:var(--shadow)}.stat{display:flex;gap:11px;align-items:center}.ico{width:40px;height:40px;display:grid;place-items:center;background:var(--pale);border-radius:13px;font-size:19px}.eyebrow{font-size:11px;color:var(--muted);font-weight:750;letter-spacing:.6px;text-transform:uppercase}.value{font-size:24px;font-weight:850;letter-spacing:-.7px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.head h2{font-size:16px;margin:0}.btn{padding:9px 13px;border:1px solid var(--line);background:white;border-radius:10px;color:var(--ink);font-weight:700}.primary{background:var(--green);color:white;border-color:var(--green)}.soft{background:var(--pale);color:var(--green);border-color:transparent}
+.rowline{display:flex;justify-content:space-between;gap:8px;font-size:13px}.progress{height:8px;border-radius:20px;background:#edf1ed;overflow:hidden;margin:7px 0 13px}.bar{height:100%;background:var(--green);width:0;border-radius:20px;transition:width .2s}
+.daystrip{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.day{border:1px solid var(--line);border-radius:12px;text-align:center;padding:9px 4px;background:#fff;color:var(--muted);font-size:11px}.day strong{display:block;font-size:17px;color:var(--ink)}.day.today{background:var(--pale);border-color:#9fbea5;color:var(--green)}.day.done{border-color:#9fbea5}.day .mark{font-size:12px}
+.meal,.exercise{border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:8px}.meal-top,.ex-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.meal strong,.exercise strong{font-size:13px}.meal p{font-size:12px;color:var(--muted);margin:5px 0 0}.meta{font-size:12px;color:var(--muted)}.check{display:flex;align-items:center;gap:6px;color:var(--green);font-size:12px;font-weight:700}.check input{accent-color:var(--green);width:17px;height:17px}.meal.done{background:#f4faf4;border-color:#c8dfcb}.meal.done strong{text-decoration:line-through;color:#718c76}
+.exercise{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.exercise small{display:block;color:var(--muted);font-size:12px}.load{width:94px;padding:7px;text-align:center;border:1px solid var(--line);border-radius:8px;background:#fbfcfa;color:var(--ink)}
+label{display:grid;gap:5px;font-size:12px;color:var(--muted);font-weight:700}input,select,textarea{font:inherit;color:var(--ink);background:#fbfcfa;border:1px solid var(--line);border-radius:9px;padding:9px;width:100%;min-width:0}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.history{display:grid;gap:7px}.history div{display:flex;justify-content:space-between;background:#f2f5f1;padding:10px;border-radius:9px;font-size:13px}.empty{padding:18px;text-align:center;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px}.notice{background:#fbf6e9;color:#806532;padding:11px 13px;border-radius:11px;font-size:12px;margin-top:13px}
+@media(max-width:720px){.wrap{padding:16px 12px 40px}header{align-items:flex-start;flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.daystrip{gap:4px}.day{font-size:10px;padding:7px 2px}.value{font-size:21px}}
+@media(max-width:420px){.fields{grid-template-columns:1fr}}
+</style></head><body><main class="wrap">
+<header><div class="brand"><div class="logo">🌿</div><div><h1>Minha Rotina</h1><div class="sub">Treino, alimentação e evolução contínua</div></div></div><div class="muted" id="dateLabel"></div></header>
+<nav><button class="tab active" data-tab="home">☀️ Hoje</button><button class="tab" data-tab="training">🏋️ Treinos</button><button class="tab" data-tab="food">🥗 Alimentação</button><button class="tab" data-tab="progress">📈 Evolução</button><button class="tab" data-tab="settings">⚙️ Metas</button></nav>
+
+<section class="view active" id="home">
+<div class="grid stats">
+<div class="card stat"><div class="ico">🔥</div><div><div class="eyebrow">Calorias</div><div class="value" id="homeKcal">0</div><div class="muted" id="homeKcalGoal">de 2.000 kcal</div></div></div>
+<div class="card stat"><div class="ico">🥚</div><div><div class="eyebrow">Proteína</div><div class="value" id="homeProtein">0 g</div><div class="muted" id="homeProteinGoal">de 170 g</div></div></div>
+<div class="card stat"><div class="ico">🏋️</div><div><div class="eyebrow">Atividade</div><div class="value" style="font-size:18px" id="homeActivity">Push A</div><div class="muted" id="homeActivityStatus">Planejado para hoje</div></div></div>
+<div class="card stat"><div class="ico">⚖️</div><div><div class="eyebrow">Último peso</div><div class="value" id="homeWeight">—</div><div class="muted" id="homeWeightGoal">Meta: 90 kg</div></div></div>
+</div>
+<div class="card" style="margin-bottom:14px"><div class="head"><h2>🗓️ Semana atual</h2><span class="muted">Atualiza automaticamente</span></div><div class="daystrip" id="week"></div></div>
+<div class="grid cols">
+<div class="card"><div class="head"><h2>🥗 Plano alimentar de hoje</h2><button class="btn soft" onclick="go('food')">Editar plano</button></div><div class="rowline"><span>Calorias consumidas</span><b id="homeCalLine">0 / 2.000</b></div><div class="progress"><div class="bar" id="homeCalBar"></div></div><div class="rowline"><span>Proteína consumida</span><b id="homeProLine">0 / 170 g</b></div><div class="progress"><div class="bar" id="homeProBar"></div></div><div id="homeMeals"></div></div>
+<div class="card"><div class="head"><h2>🏃 Atividade programada</h2><button class="btn soft" onclick="go('training')">Abrir treino</button></div><div id="homeWorkout"></div><div class="muted" style="margin-top:12px">Marque como concluído quando terminar. O histórico fica salvo por data.</div></div>
+</div></section>
+
+<section class="view" id="training"><div class="grid cols">
+<div class="card"><div class="head"><h2>Ficha da semana</h2></div><label>Dia para consultar<select id="trainingDay"></select></label><div id="trainingDetails" style="margin-top:10px"></div><button class="btn primary" id="doneTraining" style="margin-top:12px">✓ Concluir atividade de hoje</button><div class="notice">Registre a carga usada em cada exercício. Na próxima sessão, o painel mantém o último valor como referência.</div></div>
+<div class="card"><div class="head"><h2>Histórico de atividades</h2></div><div id="trainingHistory" class="history"></div></div>
+</div></section>
+
+<section class="view" id="food"><div class="grid cols">
+<div class="card"><div class="head"><h2>Cardápio diário sugerido</h2><label style="max-width:160px">Data<input type="date" id="foodDate"></label></div><div id="foodList"></div><button class="btn" id="resetFood" style="margin-top:12px">Desmarcar refeições desta data</button></div>
+<div class="card"><div class="head"><h2>Resumo do dia</h2></div><div class="eyebrow">Calorias</div><div class="value" id="foodKcal">0 kcal</div><div class="progress"><div class="bar" id="foodKcalBar"></div></div><div class="eyebrow">Proteína</div><div class="value" id="foodProtein">0 g</div><div class="progress"><div class="bar" id="foodProteinBar"></div></div><div class="notice">Os números são estimativas. Ajuste porções e valores conforme os alimentos que realmente consumir.</div></div>
+</div></section>
+
+<section class="view" id="progress"><div class="grid cols">
+<div class="card"><div class="head"><h2>⚖️ Registrar peso</h2></div><form id="weightForm"><div class="fields"><label>Data<input type="date" id="weightDate" required></label><label>Peso (kg)<input type="number" id="weightValue" step=".1" min="1" required placeholder="106,5"></label></div><button class="btn primary" style="margin-top:12px">Salvar pesagem</button></form><h3 style="font-size:14px;margin:20px 0 9px">Histórico</h3><div id="weightHistory" class="history"></div></div>
+<div class="card"><div class="head"><h2>🎯 Meta de peso</h2></div><div class="eyebrow">Objetivo</div><div class="value" id="goalValue">90 kg</div><p class="muted" id="goalDescription">Registre seu peso para acompanhar.</p><div class="progress"><div class="bar" id="goalBar"></div></div><p class="muted">Acompanhe a tendência semanal, não apenas oscilações de um dia.</p></div>
+</div></section>
+
+<section class="view" id="settings"><div class="grid cols">
+<div class="card"><div class="head"><h2>🎯 Metas diárias</h2></div><form id="settingsForm"><div class="fields"><label>Calorias (kcal)<input id="setKcal" type="number" min="500"></label><label>Proteína (g)<input id="setProtein" type="number" min="20"></label><label>Peso-alvo (kg)<input id="setGoal" type="number" step=".1" min="1"></label></div><button class="btn primary" style="margin-top:12px">Salvar metas</button></form></div>
+<div class="card"><div class="head"><h2>💾 Backup e dados</h2></div><p class="muted">O progresso fica salvo automaticamente neste navegador. Exporte um backup para transferir ou proteger seus dados.</p><button class="btn" id="export">↓ Exportar backup</button> <button class="btn" id="import">↑ Importar backup</button><input id="file" type="file" accept="application/json" hidden><p><button class="btn" id="resetAll">Apagar todos os registros</button></p></div>
+</div><div class="notice">O painel muda de dia automaticamente. Cada refeição, treino concluído, carga e pesagem é associada à data correspondente. Ao voltar a uma data anterior, você verá o progresso registrado naquele dia.</div></section>
+<footer class="muted" style="text-align:center;margin-top:25px">Salvamento local automático • Nenhum dado enviado para servidores</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const today=()=>{let d=new Date();return new Date(d-d.getTimezoneOffset()*60000).toISOString().slice(0,10)};
+const dayNames=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+const plan=[
+{day:1,name:'Push A',kind:'Musculação',items:[['Supino reto','4 × 8–10'],['Supino inclinado com halteres','3 × 10–12'],['Desenvolvimento','3 × 8–12'],['Elevação lateral','3 × 12–15'],['Tríceps pulley','3 × 10–15']]},
+{day:2,name:'Pull A',kind:'Musculação',items:[['Puxada alta aberta','4 × 8–12'],['Remada baixa','3 × 8–12'],['Puxada unilateral','3 × 10–12 por lado'],['Face pull','2–3 × 12–15'],['Rosca direta','3 × 10–12']]},
+{day:3,name:'Futebol ⚽',kind:'Futebol',items:[]},
+{day:4,name:'Legs',kind:'Musculação',items:[['Leg press','3 × 8–12'],['Mesa flexora','3 × 10–12'],['Stiff','3 × 8–10'],['Cadeira extensora','3 × 10–15'],['Panturrilha','3 × 12–20']]},
+{day:5,name:'Upper',kind:'Musculação',items:[['Supino inclinado ou chest press','3 × 8–12'],['Puxada neutra','3 × 8–12'],['Remada com peito apoiado','3 × 8–12'],['Elevação lateral','3 × 12–15'],['Rosca bíceps','2 × 10–12'],['Tríceps','2 × 10–12']]},
+{day:6,name:'Cardio opcional',kind:'Cardio',items:[['Caminhada, bicicleta ou atividade leve','30–45 min']]},
+{day:0,name:'Descanso',kind:'Recuperação',items:[]}
+];
+const foodPlan=[
+{id:'breakfast',name:'Café da manhã',desc:'3 ovos + 1 fatia de pão integral',kcal:330,protein:25},
+{id:'lunch',name:'Almoço / marmita',desc:'Arroz + 180 g de frango ou patinho + legumes/salada',kcal:650,protein:55},
+{id:'snack',name:'Lanche',desc:'1 dose de whey + iogurte natural (170 g) + 30 g de aveia',kcal:380,protein:40},
+{id:'dinner',name:'Jantar',desc:'150 g de frango ou patinho + batata + legumes',kcal:520,protein:45},
+{id:'extra',name:'Complemento',desc:'Fruta ou ajuste de porção para completar suas metas',kcal:120,protein:5}
+];
+const base={kcalGoal:2000,proteinGoal:170,weightGoal:90,mealsDone:{},workoutDone:{},loads:{},weights:[]};
+let s={...base};try{s={...base,...JSON.parse(localStorage.getItem('minhaRotinaFitnessV3')||'{}')}}catch(e){}
+function save(){localStorage.setItem('minhaRotinaFitnessV3',JSON.stringify(s));render()}
+function dayIndex(d){return new Date(d+'T12:00:00').getDay()}
+function activity(d){return plan.find(p=>p.day===dayIndex(d))}
+function totals(d){return foodPlan.filter(m=>s.mealsDone[d]?.[m.id]).reduce((a,m)=>({k:a.k+m.kcal,p:a.p+m.protein}),{k:0,p:0})}
+function go(id){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===id))}
+document.querySelectorAll('.tab').forEach(x=>x.onclick=()=>go(x.dataset.tab));
+function mealHTML(m,d){let done=!!s.mealsDone[d]?.[m.id];return `<div class="meal ${done?'done':''}"><div class="meal-top"><div><strong>${m.name}</strong><div class="meta">≈ ${m.kcal} kcal · ${m.protein} g proteína</div></div><label class="check"><input type="checkbox" ${done?'checked':''} onchange="toggleMeal('${d}','${m.id}',this.checked)"> Feito</label></div><p>${m.desc}</p></div>`}
+window.toggleMeal=(d,id,v)=>{s.mealsDone[d]??={};s.mealsDone[d][id]=v;save()};
+window.setLoad=(name,v)=>{s.loads[name]=v;localStorage.setItem('minhaRotinaFitnessV3',JSON.stringify(s))};
+function workoutHTML(p){if(!p.items.length)return `<div class="empty">${p.name==='Futebol ⚽'?'Futebol à noite. Bom jogo! ⚽':p.name==='Cardio opcional'?'Escolha uma atividade leve, se estiver recuperado.':'Dia de descanso e recuperação 🌿'}</div>`;
+return p.items.map(([n,r])=>`<div class="exercise"><div><strong>${n}</strong><small>${r}</small></div><label style="width:105px">Carga (kg)<input class="load" type="number" step=".5" min="0" placeholder="—" value="${s.loads[n]??''}" onchange="setLoad('${n.replace(/'/g,"\\'")}',this.value)"></label></div>`).join('')}
+function doneKey(d){return d+'|'+activity(d).name}
+function render(){
+let t=today(),p=activity(t),tot=totals(t),done=!!s.workoutDone[doneKey(t)];
+$('dateLabel').textContent=new Date(t+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+$('homeKcal').textContent=tot.k;$('homeProtein').textContent=tot.p+' g';$('homeKcalGoal').textContent='de '+s.kcalGoal+' kcal';$('homeProteinGoal').textContent='de '+s.proteinGoal+' g';
+$('homeActivity').textContent=p.name;$('homeActivityStatus').textContent=done?'Concluído ✓':'Programado para hoje';
+let last=[...s.weights].sort((a,b)=>b.date.localeCompare(a.date))[0];$('homeWeight').textContent=last?last.value+' kg':'—';$('homeWeightGoal').textContent='Meta: '+s.weightGoal+' kg';
+$('homeCalLine').textContent=tot.k+' / '+s.kcalGoal+' kcal';$('homeProLine').textContent=tot.p+' / '+s.proteinGoal+' g';$('homeCalBar').style.width=Math.min(100,tot.k/s.kcalGoal*100)+'%';$('homeProBar').style.width=Math.min(100,tot.p/s.proteinGoal*100)+'%';
+$('homeMeals').innerHTML=foodPlan.map(m=>mealHTML(m,t)).join('');
+$('homeWorkout').innerHTML=`<h3 style="margin:6px 0">${p.name}</h3><div class="muted">${p.kind}</div>`+(p.items.length?p.items.map(x=>`<div class="rowline" style="padding:7px 0;border-bottom:1px solid var(--line)"><span>${x[0]}</span><b>${x[1]}</b></div>`).join(''):`<p class="muted">${p.name==='Futebol ⚽'?'Futebol programado para quarta à noite.':p.name==='Cardio opcional'?'Cardio opcional de 30–45 minutos.':'Recuperação.'}</p>`)+`<button class="btn ${done?'soft':'primary'}" style="margin-top:12px" onclick="markToday()">${done?'✓ Atividade concluída':'Marcar atividade concluída'}</button>`;
+let start=new Date(t+'T12:00:00');start.setDate(start.getDate()-((start.getDay()+6)%7));let week=[];for(let i=0;i<7;i++){let d=new Date(start);d.setDate(start.getDate()+i);let ds=new Date(d-d.getTimezoneOffset()*60000).toISOString().slice(0,10),a=activity(ds),isDone=!!s.workoutDone[ds+'|'+a.name];week.push(`<div class="day ${ds===t?'today':''} ${isDone?'done':''}">${dayNames[d.getDay()].slice(0,3)}<strong>${d.getDate()}</strong><span>${a.name.replace(' ⚽','')}</span><div class="mark">${isDone?'✓':a.name.includes('Futebol')?'⚽':''}</div></div>`)}$('week').innerHTML=week.join('');
+$('trainingDay').innerHTML=plan.map(x=>`<option value="${x.day}">${dayNames[x.day]} — ${x.name}</option>`).join('');$('trainingDay').value=dayIndex(t);renderTraining();
+let hist=Object.keys(s.workoutDone).filter(k=>s.workoutDone[k]).sort().reverse().slice(0,12);$('trainingHistory').innerHTML=hist.length?hist.map(k=>{let [d,n]=k.split('|');return `<div><span>${n}</span><b>${new Date(d+'T12:00:00').toLocaleDateString('pt-BR')}</b></div>`}).join(''):'<div class="empty">Atividades concluídas aparecerão aqui.</div>';
+let fd=$('foodDate').value||t,ft=totals(fd);$('foodList').innerHTML=foodPlan.map(m=>mealHTML(m,fd)).join('');$('foodKcal').textContent=ft.k+' kcal';$('foodProtein').textContent=ft.p+' g';$('foodKcalBar').style.width=Math.min(100,ft.k/s.kcalGoal*100)+'%';$('foodProteinBar').style.width=Math.min(100,ft.p/s.proteinGoal*100)+'%';
+$('weightHistory').innerHTML=s.weights.length?s.weights.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<div><span>${new Date(x.date+'T12:00:00').toLocaleDateString('pt-BR')}</span><b>${x.value} kg</b></div>`).join(''):'<div class="empty">Registre sua primeira pesagem.</div>';
+$('goalValue').textContent=s.weightGoal+' kg';if(last){let first=[...s.weights].sort((a,b)=>a.date.localeCompare(b.date))[0],cur=Number(last.value),initial=Number(first.value);$('goalDescription').textContent=`Último peso: ${cur} kg · ${Math.abs(cur-s.weightGoal).toFixed(1)} kg até a meta`;$('goalBar').style.width=Math.min(100,Math.abs((initial-cur)/(initial-s.weightGoal||1))*100)+'%'}else{$('goalDescription').textContent='Registre seu peso para acompanhar.';$('goalBar').style.width='0%'}
+$('setKcal').value=s.kcalGoal;$('setProtein').value=s.proteinGoal;$('setGoal').value=s.weightGoal;
+}
+function renderTraining(){let p=plan.find(x=>x.day===Number($('trainingDay').value));$('trainingDetails').innerHTML=`<h3 style="margin:8px 0">${p.name}</h3>${workoutHTML(p)}`;$('doneTraining').textContent=s.workoutDone[doneKey(today())]?'✓ Atividade de hoje concluída':'✓ Marcar atividade de hoje como concluída'}
+window.markToday=()=>{s.workoutDone[doneKey(today())]=!s.workoutDone[doneKey(today())];save()};
+$('trainingDay').onchange=renderTraining;
+$('doneTraining').onclick=()=>{s.workoutDone[doneKey(today())]=true;save()};
+$('foodDate').value=today();$('foodDate').onchange=render;
+$('resetFood').onclick=()=>{if(confirm('Desmarcar todas as refeições desta data?')){delete s.mealsDone[$('foodDate').value];save()}};
+$('weightDate').value=today();$('weightForm').onsubmit=e=>{e.preventDefault();s.weights.push({date:$('weightDate').value,value:Number($('weightValue').value)});e.target.reset();$('weightDate').value=today();save()};
+$('settingsForm').onsubmit=e=>{e.preventDefault();s.kcalGoal=Number($('setKcal').value);s.proteinGoal=Number($('setProtein').value);s.weightGoal=Number($('setGoal').value);save();alert('Metas atualizadas!')};
+$('export').onclick=()=>{let a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(s,null,2)],{type:'application/json'}));a.href=u;a.download='backup-minha-rotina.json';a.click();URL.revokeObjectURL(u)};
+$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());if(!d.mealsDone||!d.weights)throw 0;s={...base,...d};save();alert('Backup importado!')}catch(x){alert('Arquivo inválido.')}e.target.value=''};
+$('resetAll').onclick=()=>{if(confirm('Apagar todos os registros salvos neste navegador? Exporte um backup antes se quiser guardar seus dados.')){s={...base};save()}};
+render();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW:', err));
+  });
+}
+</script>
+</body></html>

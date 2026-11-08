@@ -1,0 +1,21 @@
+MINHA ROTINA — PWA
+
+Arquivos:
+- index.html: aplicativo
+- manifest.webmanifest: configuração de instalação
+- sw.js: cache/offline
+- icons/: ícones do aplicativo
+
+PUBLICAÇÃO:
+1. No GitHub, abra o repositório onde quer publicar.
+2. Envie estes arquivos para a raiz do repositório (index.html, manifest.webmanifest, sw.js e a pasta icons).
+3. Faça Commit changes.
+4. Em Settings > Pages, habilite GitHub Pages se ainda não estiver habilitado.
+5. Abra a URL HTTPS publicada no celular.
+
+INSTALAÇÃO:
+- Android/Chrome: menu ⋮ > Instalar app ou Adicionar à tela inicial.
+- iPhone/Safari: Compartilhar > Adicionar à Tela de Início.
+
+DADOS:
+O progresso é salvo no armazenamento local do navegador/dispositivo. Esta versão não sincroniza automaticamente dados entre celular e computador. Para isso, seria necessário adicionar uma base de dados na nuvem e autenticação.
